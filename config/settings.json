@@ -1,6 +1,6 @@
 {
-    "cartTitle": "CLOTH",
-    "cartDescription": "expressCart",
+    "cartTitle": "دیجی نود",
+    "cartDescription": " فروشگاه",
     "cartLogo": "",
     "baseUrl": "http://localhost:1111",
     "emailHost": "smtp-mail.outlook.com",
@@ -14,14 +14,14 @@
     "freeShippingAmount": 100,
     "productsPerRow": 3,
     "productsPerPage": 6,
-    "menuTitle": "Menu",
+    "menuTitle": "منو",
     "menuLocation": "side",
-    "footerHtml": "&lt;h4 class=&quot;text-center&quot;&gt;Powered by expressCart&lt;/h4&gt;",
+    "footerHtml": "&lt;h4 class=&quot;text-center&quot;&gt;دیجی نود&lt;/h4&gt;",
     "googleAnalytics": "",
     "customCss": ".footer{padding-top: 5px;}",
-    "currencySymbol": "£",
+    "currencySymbol": "ریال",
     "paymentGateway": "stripe",
-    "databaseConnectionString": "mongodb://127.0.0.1:27017/expresscart",
+    "databaseConnectionString": "mongodb://127.0.0.1:27017/shop",
     "theme": "Cloth",
     "trackStock": false
 }

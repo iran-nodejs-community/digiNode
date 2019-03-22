@@ -1,24 +1,28 @@
 <nav class="navbar navbar-default navbarMenuWrapper">
     <div class="container-fluid">
-        <div class="col-md-8 col-md-offset-2 navbarMenu">
+        <div class="col-md-12 col-md-offset-2 navbarMenu">
             <ul class="nav navbar-nav">
 
-                <li {{#unless searchTerm}}class="navActive"{{/unless}}><a href="/">Home</a></li>
+
+                <li class="pull-left col-md-4 searchBarWrapper">
+                    <div class="search-bar-input input-group searchMenuLocation-{{config.menuLocation}} searchProPerRow-{{config.productsPerRow}}">
+                        <input type="text" name="frm_search" id="frm_search" class="form-control"
+                               placeholder="جستجو در فروشگاه">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" id="btn_search" type="submit"> جستجو</button>
+                        </span>
+                    </div>
+                </li>
+
+                <li {{#unless searchTerm}}class="pull-right navActive"{{/unless}}><a href="/">خانه</a></li>
                 {{#each menu.items}}
                     <li
+                            class="pull-right"
                         {{#menuMatch this.title @root.searchTerm}}{{/menuMatch}}
                         {{#menuMatch this.title @root.title}}{{/menuMatch}}>
                         <a href="{{this.link}}">{{this.title}}</a>
                     </li>
                 {{/each}}
-                <li class="pull-right col-md-4 searchBarWrapper">
-                    <div class="search-bar-input input-group searchMenuLocation-{{config.menuLocation}} searchProPerRow-{{config.productsPerRow}}">
-                        <input type="text" name="frm_search" id="frm_search" class="form-control" placeholder="Search the shop">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" id="btn_search" type="submit">Search</button>
-                        </span>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>

@@ -1,31 +1,30 @@
-{{> partials/menu}}
 <div class="col-lg-9">
     <div class="col-lg-12">
-        <h2>Orders</h2>
+        <h2>سفارشات</h2>
     </div>
     <div class="col-lg-12 search_bar">
         <div class="input-group">
-            <input type="text" name="order_filter" id="order_filter" class="form-control input-lg" placeholder="Filter orders">
+            <input type="text" name="order_filter" id="order_filter" class="form-control input-lg" placeholder="جستجو سفارشات">
             <span class="input-group-btn">
-                <button class="btn btn-success btn-lg" id="btn_order_filter">Filter</button>
-                <a href="/admin/orders/bystatus/" class="hidden-xs btn btn-info btn-lg orderFilterByStatus">By status</a>
+                <button class="btn btn-success btn-lg" id="btn_order_filter">جستجو</button>
+                <a href="/admin/orders/bystatus/" class="hidden-xs btn btn-info btn-lg orderFilterByStatus">بر اساس وضعیت</a>
                 <a href="/admin/orders" class="hidden-xs btn btn-warning btn-lg"><i class="fa fa-times" aria-hidden="true"></i></a>
             </span>
         </div>
         <div class="orderFilter">
-            <div class="text-warning top-pad-10 col-md-8">Orders can be filtered by: surname, email address or postcode/zipcode</div>
+            <div class="text-warning top-pad-10 col-md-8">سفارشات میتوانند بر اساس : نام ، ایمیل ، آدرس و کد پستی فیلتر شوند </div>
             <div class="col-md-4 no-pad-right">
                 <div class="form-group">
-                    <label for="orderStatusFilter" class="col-sm-2 control-label formLabel">Status</label>
+                    <label for="orderStatusFilter" class="col-sm-2 control-label formLabel">وضعیت</label>
                     <div class="col-sm-10 no-pad-right">
                         <select class="form-control input-sm" id="orderStatusFilter">
-                            <option>Completed</option>
-                            <option>Paid</option>
-                            <option>Created</option>
-                            <option>Cancelled</option>
-                            <option>Declined</option>
-                            <option>Shipped</option>
-                            <option>Pending</option>
+                            <option value="Completed">کامل شده</option>
+                            <option value="Paid">پرداخت شده</option>
+                            <option value="Created">ایجاد شده</option>
+                            <option value="Cancelled">مردود شده</option>
+                            <option value="Declined">منصرف شده</option>
+                            <option value="Shipped">بارگیری شده</option>
+                            <option value="Pending">در حال ارسال</option>
                         </select>
                     </div>
                 </div>
@@ -37,9 +36,9 @@
         <ul class="list-group">
             <li class="list-group-item">
                 {{#if searchTerm}}
-                    <strong>Orders - <span class="text-danger">Filtered term: {{searchTerm}} </span></strong>
+                    <strong>سفارشات - <span class="text-danger">گزینه های جستجو: {{searchTerm}} </span></strong>
                 {{else}}
-                    <strong>Recent orders</strong>
+                    <strong>سفارشات اخیر</strong>
                 {{/if}}
             </li>
             {{#if orders}}
@@ -47,20 +46,21 @@
                 <li class="list-group-item">
                     <h4 class="pull-right" style="padding-left: 10px;">
                         Status: <span class="text-{{getStatusColor this.orderStatus}}">{{this.orderStatus}}</span>
-                        <a class="text-danger" href="/admin/order/delete/{{this._id}}" onclick="return confirm('Are you sure you want to delete this order?');"> <i class="fa fa-trash-o"></i></a>
+                        <a class="text-danger" href="/admin/order/delete/{{this._id}}" onclick="return confirm('آیا از حذف این آیتم اطمینان دارید؟');"> <i class="fa fa-trash-o"></i></a>
                     </h4>
                     <h5>
-                        <a href="/admin/order/view/{{this._id}}">View order</a> - <span class="text-info">Date: </span>{{formatDate this.orderDate "DD/MM/YYYY hh:mm"}} | <span class="text-info">Email:</span> {{this.orderEmail}} | <span class="text-info">Last name:</span> {{this.orderLastname}}
+                        <a href="/admin/order/view/{{this._id}}">مشاهده سفارش</a> - <span class="text-info">Date: </span>{{formatDate this.orderDate "DD/MM/YYYY hh:mm"}} | <span class="text-info">ایمیل:</span> {{this.orderEmail}} | <span class="text-info">نام خانوادگی:</span> {{this.orderLastname}}
                     </h5>
                 </li>
             {{/each}}
             {{else}}
                 <li class="list-group-item">
                     <h4 class="text-center">
-                        No orders found
+                        سفارشی یافت نشد
                     </h4>
                 </li>
             {{/if}}
         </ul>
     </div>
 </div>
+{{> partials/menu}}

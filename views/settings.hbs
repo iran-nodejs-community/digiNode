@@ -1,74 +1,75 @@
-{{> partials/menu}}
 <div class="col-lg-9">
     <div class="row">
         <div class="col-md-10">
             <form method="post" id="settingsForm" action="/admin/settings/update" data-toggle="validator">
-                <h2 class="clearfix">General Settings
+                <h2 class="clearfix">تنظیمات عمومی
                     <div class="pull-right">
-                    <button type="submit" id="btnSettingsUpdate" class="btn btn-success">Update</button>
+                    <button type="submit" id="btnSettingsUpdate" class="btn btn-success">به روز رسانی</button>
                 </h2>
                 <div class="form-group">
-                    <label>Cart name *</label>
+                    <label>نام فروشگاه *</label>
                     <input type="text" class="form-control" name="cartTitle" value="{{config.cartTitle}}" required>
                     <p class="help-block">
-                        This element is critical for search engine optimisation. Cart title is displayed if your logo is hidden.
+                        این گزینه برای جستجو شدن در موتور های جستجو کاربرد دارد و زمانی نمایش داده میشود که لوگو انتخاب نشده باشد
                     </p>
                 </div>
                 <div class="form-group">
-                    <label>Cart description *</label>
+                    <label>توضیحات فروشگاه *</label>
                     <input type="text" class="form-control" name="cartDescription" value="{{config.cartDescription}}" required>
-                    <p class="help-block">This description shows when your website is listed in search engine results.</p>
+                    <p class="help-block">توضیحات در لیست جستجو موتورهای جستجو نمایش داده میشود</p>
                 </div>
                 <div class="form-group">
-                    <label>Cart image/logo</label>
+                    <label>تصویر/لوگو فروشگاه</label>
                     <input type="text" class="form-control" name="cartLogo" value="{{config.cartLogo}}">
                 </div>
                 <div class="form-group">
-                    <label>Cart URL *</label>
+                    <label>آدرس فروشگاه *</label>
                     <input type="text" class="form-control" name="baseUrl" value="{{config.baseUrl}}" required>
-                    <p class="help-block">This URL is used in sitemaps and when your customer returns from completing their payment.</p>
+                    <p class="help-block">این آدرس برای نقشه سایت کاربرد دارد . همچنین آدرسیست که پس از پرداخت ، کاربر به آن بازمیگردد</p>
                 </div>
                 <div class="form-group">
-                    <label>Cart Email *</label>
+                    <label>ایمیل فروشگاه *</label>
                     <input type="email" class="form-control" name="emailAddress" value="{{config.emailAddress}}" required>
-                    <p class="help-block">This is used as the "from" email when sending receipts to your customers.</p>
+                    <p class="help-block">با این ایمیل به کاربران فروشگاه ، میتوانید ایمیل ارسال کنید</p>
                 </div>
                 <div class="form-group">
-                    <label>Flat shipping rate *</label>
+                    <label>نرخ حمل و نقل *</label>
                     <input type="text" class="form-control" name="flatShipping" value="{{config.flatShipping}}" required>
-                    <p class="help-block">A flat shipping rate applied to all orders.</p>
+                    <p class="help-block">نرخ حمل و نقل اعمال شده به تمام سفارشات.</p>
                 </div>
                 <div class="form-group">
-                    <label>Free shipping threshold</label>
+                    <label>آستانه حمل رایگان</label>
                     <input type="text" class="form-control" name="freeShippingAmount" value="{{config.freeShippingAmount}}">
-                    <p class="help-block">Orders over this value will mean the shipped will the FREE. Set to high value if you always want to charge
-                        shipping.</p>
+                    <p class="help-block">
+                        سفارشات بیش از این مقدار به معنی رایگان حمل می شود. اگر همیشه می خواهید هزینه حمل و نقل را تنظیم کنید، به ارزش بالا تنظیم کنید.
+                    </p>
                 </div>
                 <div class="form-group">
-                    <label>Payment gateway</label>
+                    <label>درگاه پرداخت</label>
                     <select class="form-control" name="paymentGateway">
                         <option {{selectState 'paypal' config.paymentGateway}} value="paypal">Paypal</option>
                         <option {{selectState 'stripe' config.paymentGateway}} value="stripe">Stripe</option>
                     </select>
-                    <p class="help-block">You will also need to configure your payment gateway credentials in the `/config/&lt;gateway_name&gt;.json`
-                        file.</p>
+                    <p class="help-block">
+                        شما همچنین باید مجوز درگاه پرداخت خود را در فایل `/config/&lt;gateway_name&gt;.json` پیکربندی کنید.
+                    </p>
                 </div>
                 <div class="form-group">
-                    <label>Currency symbol</label>
+                    <label>نماد ارز</label>
                     <input type="text" class="form-control" name="currencySymbol" value="{{currencySymbol config.currencySymbol}}">
-                    <p class="help-block">Set this to your currency symbol. Eg: $, £, €</p>
+                    <p class="help-block">این را به علامت ارز خود تنظیم کنید. مثلا: ریال</p>
                 </div>
                 <div class="form-group">
-                    <label>Theme</label>
+                    <label>قالب</label>
                     <select class="form-control" name="theme">
                         {{#each themes}}
                         <option {{selectState this ../config.theme}} value="{{this}}">{{this}}</option>
                         {{/each}}
                     </select>
-                    <p class="help-block">Themes are loaded from `/public/themes/`</p>
+                    <p class="help-block">قالب ها از `/ public / themes /` بارگذاری می شوند</p>
                 </div>
                 <div class="form-group">
-                    <label>Products per row</label>
+                    <label>محصولات در هر ردیف</label>
                     <select class="form-control" name="productsPerRow">
                         <option value="{{config.productsPerRow}}" hidden="hidden" selected="selected">{{config.productsPerRow}}</option>
                         <option {{selectState '1' config.productsPerRow}}>1</option>
@@ -76,39 +77,41 @@
                         <option {{selectState '3' config.productsPerRow}}>3</option>
                         <option {{selectState '4' config.productsPerRow}}>4</option>
                     </select>
-                    <p class="help-block">The number of products to be displayed across the page.</p>
+                    <p class="help-block">تعداد محصولات نمایش داده شده در سراسر صفحه.</p>
                 </div>
                 <div class="form-group">
-                    <label>Products per page</label>
+                    <label>محصولات در هر صفحه</label>
                     <input type="number" class="form-control" name="productsPerPage" value="{{config.productsPerPage}}">
-                    <p class="help-block">The number of products to be displayed on each page.</p>
+                    <p class="help-block">تعداد محصولات نمایش داده شده در هر صفحه.</p>
                 </div>
                 <div class="form-group">
-                    <label>Menu Enabled: </label>
+                    <label>فعال سازی منو :</label>
                     <div class="checkbox">
                         <label>
                             <input class="settingsMenuEnabled" type="checkbox" {{checkedState config.menuEnabled}} id="menuEnabled"
                                 name="menuEnabled">
                         </label>
                     </div>
-                    <p class="help-block">If a menu is set you can set it up
-                        <a href="/admin/settings/menu">here</a>.</p>
+                    <p class="help-block">اگر منوی تنظیم شده باشد می توانید آن را از
+                        <a href="/admin/settings/menu">اینجا</a>.
+                        تنظیم کنید
+                    </p>
                 </div>
                 <div class="form-group">
-                    <label>Menu header</label>
+                    <label>هدر منو</label>
                     <input type="text" class="form-control" name="menuTitle" value="{{config.menuTitle}}" placeholder="Menu">
-                    <p class="help-block">The heading text for your menu.</p>
+                    <p class="help-block">نوشته هدر منو</p>
                 </div>
                 <div class="form-group">
-                    <label>Menu location: </label>
+                    <label>جایگاه منو: </label>
                     <select class="form-control" name="menuLocation">
-                        <option {{selectState 'top' config.menuLocation}}>top</option>
-                        <option {{selectState 'side' config.menuLocation}}>side</option>
+                        <option {{selectState 'top' config.menuLocation}}>بالا</option>
+                        <option {{selectState 'side' config.menuLocation}}>کنار</option>
                     </select>
-                    <p class="help-block">The location of your menu.</p>
+                    <p class="help-block">موقعیت منو</p>
                 </div>
                 <div class="form-group">
-                    <label>Footer HTML</label>
+                    <label>فوتر HTML</label>
                     <textarea class="form-control codemirrorArea" rows="5" id="footerHtml" name="footerHtml">{{footerHtml}}</textarea>
                     <input type="hidden" id="footerHtml_input" name="footerHtml_input">
                 </div>
@@ -116,13 +119,13 @@
                     <label>Google analytics</label>
                     <textarea class="form-control" rows="3" id="googleAnalytics" name="googleAnalytics">{{googleAnalytics}}</textarea>
                     <input type="hidden" id="googleAnalytics_input" name="googleAnalytics_input">
-                    <p class="help-block">Your Google Analytics code. Please also inlude the "script" tags -
+                    <p class="help-block">کد Google Analytics شما. لطفا همچنین برچسب "اسکریپت" را وارد کنید
                         <a href="https://support.google.com/analytics/answer/1032385?hl=en"
-                            target="_blank">Help</a>
+                            target="_blank">کمک</a>
                     </p>
                 </div>
                 <div class="form-group">
-                    <label>Custom CSS</label>
+                    <label>سفارشی CSS</label>
                     <textarea class="form-control" rows="10" id="customCss" name="customCss">{{config.customCss}}</textarea>
                     <input type="hidden" id="customCss_input" name="customCss_input">
                 </div>
@@ -151,8 +154,10 @@
                     <input type="password" class="form-control" name="emailPassword" value="{{config.emailPassword}}" autocomplete="off" required>
                 </div>
                 <div class="form-group">
-                    <button id="sendTestEmail" class="btn btn-success">Send test email</button>
+                    <button id="sendTestEmail" class="btn btn-success">ارسال ایمیل تست</button>
                 </div>
                 </div>
         </div>
     </div>
+{{> partials/menu}}
+

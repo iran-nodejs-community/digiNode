@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Gandom;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../Font/Gandom-FD.ttf');
+}
+
+
+body{
+    direction: rtl;
+}
+
+body,div,p,a,section,h1,h2,h3,h4,h5,h6,input,label,li,ul{
+    font-family: "Gandom" !important;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
+{
+    margin-left:unset;
+    margin-right:-15px;
+}
+
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+
+    float: right;
+
+}
+
+.CodeMirror pre{
+    direction: ltr;
+}
+
+.navbar-nav {
+
+    float: unset;
+    margin: 0;
+
+}
+
+.navbar-header {
+
+    float: right;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
+    float: right;
+}

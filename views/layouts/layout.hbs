@@ -18,19 +18,20 @@
 		<meta name="description" content="{{config.cartDescription}}">
         {{/if}}
 		<meta name="keywords" content="{{config.cartTitle}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/cdns/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/bootstrap-xl.css">
         <link rel="stylesheet" href="/stylesheets/pushy.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.css" />
+        <link rel="stylesheet" href="/stylesheets/cdns/codemirror.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css">
+        <link rel="stylesheet" href="/stylesheets/cdns/bootstrap-tokenfield.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="/stylesheets/codemirror-style.min.css">
         <link rel="stylesheet" href="/stylesheets/style{{config.env}}.css">
+        <link rel="stylesheet" href="/stylesheets/rtl.css">
         {{#if admin}}
         <link rel="stylesheet" href="/stylesheets/admin{{config.env}}.css">
         {{/if}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/stylesheets/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/mode/css/css.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.20.2/mode/xml/xml.min.js"></script>
@@ -107,15 +108,15 @@
                         {{#ifCond page '!=' 'checkout'}}
                         {{#ifCond page '!=' 'pay'}}
                             {{#if session.cart}}
-                                <li><a href="/cart" class="menu-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge" id="cart-count">{{session.cartTotalItems}}</span></a></li>
-                                {{else}}
-                                <li><a href="/cart" class="menu-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge" id="cart-count">0</span></a></li>
+                                <li><a href="/cart" class="menu-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> سبد خرید <span class="badge" id="cart-count">{{session.cartTotalItems}}</span></a></li>
+                            {{else}}
+                                <li><a href="/cart" class="menu-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> سبد خرید <span class="badge" id="cart-count">0</span></a></li>
                             {{/if}}
                         {{/ifCond}}
                         {{/ifCond}}
                         {{/unless}}
                         {{#if session.user}}
-							<li><a href="/admin/logout"><i class="fa fa-sign-out" aria-hidden="true"> </i>Logout</a></li>
+							<li><a href="/admin/logout"><i class="fa fa-sign-out" aria-hidden="true"> </i>خروج</a></li>
 						{{/if}}
 					</ul>
 				</div>
@@ -151,7 +152,7 @@
             <footer class="footer">
                 <div class="container-fluid">
                     {{#isNull config.footerHtml}}
-                        <h4 class="text-center">Powered by expressCart</h4>
+                        <h4 class="text-center">Digi Node</h4>
                     {{else}}
                         {{{config.footerHtml}}}
                     {{/isNull}}

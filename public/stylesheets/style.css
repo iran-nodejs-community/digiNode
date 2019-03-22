@@ -98,10 +98,10 @@ a.text-danger:hover, a.text-danger:focus {
     margin: auto;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .navbar-brand>img {
@@ -213,7 +213,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 15px;
 }
 
-#header {        
+#header {
     height: 50px;
 }
 
@@ -248,7 +248,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .dropdown-menu>li>a{
     padding-top: 5px !important;
-    
+
 }
 
 .pad-bottom{
@@ -272,7 +272,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .editor_btn_action{
-    border-top-left-radius: 4px !important; 
+    border-top-left-radius: 4px !important;
     border-bottom-left-radius: 4px !important;
 }
 
@@ -289,8 +289,8 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 9999;
     padding-top: 10px;
     height: 50px;
-    bottom: 0px; 
-    width: 100%; 
+    bottom: 0px;
+    width: 100%;
     text-align: center;
     font-size: 22px;
     color: white;
@@ -372,13 +372,13 @@ input.form-control.customerDetails{
 
 .image-next{
     position: absolute;
-    top: 180px; 
+    top: 180px;
     right: 0px;
 }
 
 .image-prev{
     position: absolute;
-    top: 180px; 
+    top: 180px;
     left: 0px;
 }
 
@@ -435,7 +435,7 @@ a {
 }
 
 .navbar-default .navbar-brand {
-    color: #000000; 
+    color: #000000;
     font-size: 40px;
     font-weight: 700;
 }
@@ -508,8 +508,8 @@ a {
 }
 
 .pagination>li:last-child>a, .pagination>li:last-child>span {
-    border-bottom-right-radius: 0px; 
-    border-top-right-radius: 0px; 
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 @media only screen and (min-width: 768px){

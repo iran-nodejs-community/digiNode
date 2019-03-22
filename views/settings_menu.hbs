@@ -1,13 +1,12 @@
-{{> partials/menu}}
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 <div class="col-lg-9">
 	<div class="row">
 		<div class="col-md-10">
-			<h2>Menu</h2>
+			<h2>منو</h2>
             <table class="table table-condensed">
                 <th></th>
-                <th>Menu</th>
-                <th>Link</th>
+                <th>منو</th>
+                <th>لینک</th>
                 <th></th>
                 <tbody id="draggable_list">
                     {{#each menu.items}}
@@ -51,13 +50,12 @@
                 </tbody>
             </table>
             <p class="text-muted">
-                Here you can setup a menu to displayed on your shopping cart. You can use this menu to filter your products by specifying a keyword in the
-                "link" field. Eg: To show products with a keyword (or tag) of boots you would set the menu field to "Backpacks" and a link value "backpack".
-                You can also use this menu to link to static pages, Eg: shipping, returns, help, about, contact etc.
+                در اینجا می توانید یک منو برای نمایش در سبد خرید خود تنظیم کنید. شما می توانید از این منو برای فیلتر کردن محصولات خود با مشخص کردن یک کلمه کلیدی در زمینه "لینک" استفاده کنید. به عنوان مثال: برای نشان دادن محصولات با یک کلمه کلیدی (یا برچسب) چکمه، می توانید زمینه منو را به «کوله پشتی» و مقدار پیوند «کوله پشتی» تنظیم کنید. شما همچنین می توانید از این منو برای پیوند به صفحات استاتیک استفاده کنید، مثلا: حمل و نقل، بازگشت، کمک، در مورد، تماس و غیره
             </p>
 		</div>
 	</div>
 </div>
+{{> partials/menu}}
 
 <script>
     $(document).ready(function() {
