@@ -82,5 +82,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mrvautin/expressCart/issues"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

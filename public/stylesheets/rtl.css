@@ -30,6 +30,11 @@ body,div,p,a,section,h1,h2,h3,h4,h5,h6,input,label,li,ul{
     direction: ltr;
 }
 
+.col-lg-offset-4{
+    margin-right: 33.33333333%;
+    margin-left:unset;
+}
+
 .navbar-nav {
 
     float: unset;
