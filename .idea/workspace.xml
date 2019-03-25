@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9b3fbef-d3e9-4612-95d2-da98e8db0ac3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,7 +49,7 @@
         <counts>
           <entry key="css" value="296" />
           <entry key="hbs" value="3018" />
-          <entry key="js" value="4" />
+          <entry key="js" value="8" />
           <entry key="json" value="50" />
           <entry key="txt" value="39" />
         </counts>
@@ -60,7 +59,7 @@
           <entry key="CSS" value="296" />
           <entry key="Handlebars/Mustache" value="3018" />
           <entry key="JSON" value="50" />
-          <entry key="JavaScript" value="4" />
+          <entry key="JavaScript" value="8" />
           <entry key="PLAIN_TEXT" value="39" />
         </counts>
       </usages-collector>
@@ -302,7 +301,7 @@
       <option name="presentableId" value="Default" />
       <updated>1552849410955</updated>
       <workItem from="1552849414074" duration="4109000" />
-      <workItem from="1553080440583" duration="9851000" />
+      <workItem from="1553080440583" duration="10063000" />
     </task>
     <task id="LOCAL-00001" summary="start of translating to persian">
       <created>1553251578440</created>
@@ -315,7 +314,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13960000" />
+    <option name="totallyTimeSpent" value="14172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="25" width="1529" height="875" extended-state="6" />
