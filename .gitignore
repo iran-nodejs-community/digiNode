@@ -3,3 +3,5 @@ data/
 /config/settings-local.json
 .vscode
 **.DS_Store
+/.idea
+.idea
