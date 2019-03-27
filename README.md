@@ -1,11 +1,8 @@
-# expressCart
+# digiNode
 
 ![digi_node](https://user-images.githubusercontent.com/12640517/55111276-ac566c80-50f7-11e9-90ab-1e44568aabcf.png)
 
-`expressCart` is a fully functional shopping cart built in Node.js (Express, MongoDB) with Stripe, PayPal and Authorize.net payments.
-
-[![Github stars](https://img.shields.io/github/stars/mrvautin/expressCart.svg?style=social&label=Star)](https://github.com/mrvautin/expressCart)
-[![Build Status](https://travis-ci.org/mrvautin/expressCart.svg?branch=master)](https://travis-ci.org/mrvautin/expressCart)
+`digiNode` is a fully functional persian shopping cart built in Node.js (Express, MongoDB) with Stripe, PayPal and Authorize.net payments. (forked from [markmoffat](https://demo.expresscart.markmoffat.com/))
 
 [**View the demo**](https://demo.expresscart.markmoffat.com/)
 
