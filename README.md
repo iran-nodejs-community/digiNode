@@ -1,6 +1,6 @@
 # expressCart
 
-![expressCart](https://raw.githubusercontent.com/mrvautin/expressCart/master/public/images/logo.png)
+![digi_node](https://user-images.githubusercontent.com/12640517/55111276-ac566c80-50f7-11e9-90ab-1e44568aabcf.png)
 
 `expressCart` is a fully functional shopping cart built in Node.js (Express, MongoDB) with Stripe, PayPal and Authorize.net payments.
 
