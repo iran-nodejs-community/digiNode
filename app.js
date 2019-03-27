@@ -110,6 +110,12 @@ handlebars = handlebars.create({
             }
             return'0.00';
         },
+        subStringTitle: function(string){
+            if(string){
+                return string.substr(0, 30)+"...";
+            }
+            return ' ';
+        },
         amountNoDecimal: function(amt){
             if(amt){
                 return handlebars.helpers.formatAmount(amt).replace('.', '');
