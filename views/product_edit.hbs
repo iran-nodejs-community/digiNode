@@ -3,19 +3,19 @@
         <div class="col-lg-12">
             <div class="page-header">
                 <div class="pull-right">
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upload image</button>
-                    <button id="frm_edit_product_save" class="btn btn-success">Save product <i class="fa fa-floppy-o"></i></button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">افزودن تصویر</button>
+                    <button id="frm_edit_product_save" class="btn btn-success">ذخیره سازی کالا <i class="fa fa-floppy-o"></i></button>
                 </div>
-                <h2>Edit product</h2>
+                <h2>ویرایش کالا</h2>
             </div>
             <div class="form-group">
-                <label for="frmProductTitle" class="col-sm-2 control-label">Product title *</label>
+                <label for="frmProductTitle" class="col-sm-2 control-label">عنوان کالا *</label>
                 <div class="col-sm-10">
                     <input type="text" name="frmProductTitle" class="form-control" minlength="5" maxlength="200" value="{{result.productTitle}}" required/>
                 </div>
             </div>
             <div class="form-group">
-                <label for="frmProductPrice" class="col-sm-2 control-label">Product price *</label>
+                <label for="frmProductPrice" class="col-sm-2 control-label">قیمت کالا *</label>
                 <div class="col-sm-6">
                     <div class="input-group">
                         <span class="input-group-addon">{{currencySymbol config.currencySymbol}}</span>
@@ -24,57 +24,57 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="frmProductPublished" class="col-sm-2 control-label">Status</label>
+                <label for="frmProductPublished" class="col-sm-2 control-label">وضعیت</label>
                 <div class="col-sm-6">
                     <select class="form-control" id="frmProductPublished" name="frmProductPublished">
-                        <option value="true"  {{selectState result.productPublished "true"}}>Published</option>
-                        <option value="false" {{selectState result.productPublished "false"}}>Draft</option>
+                        <option value="true"  {{selectState result.productPublished "true"}}>منتشر شده</option>
+                        <option value="false" {{selectState result.productPublished "false"}}>چرک نویس</option>
                     </select>
                 </div>
             </div>
             {{#if config.trackStock}}
             <div class="form-group">
-                <label for="frmProductStock" class="col-sm-2 control-label">Stock level</label>
+                <label for="frmProductStock" class="col-sm-2 control-label">سطح انبار</label>
                 <div class="col-sm-6">
                     <input type="number" name="frmProductStock" class="form-control" value="{{result.productStock}}" step="any" />
                 </div>
             </div>
             {{/if}}
             <div class="form-group">
-                <label for="editor" class="col-sm-2 control-label">Product description *</label>
+                <label for="editor" class="col-sm-2 control-label">توضیحات کالا *</label>
                 <div class="col-sm-10">
                     <textarea id="editor" minlength="5" rows="10" id="frmProductDescription" name="frmProductDescription" class="form-control" required>{{result.productDescription}}</textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-2 control-label">Permalink</label>
+                <label class="col-sm-2 control-label">لینک همیشگی</label>
                 <div class="col-sm-10">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="frmProductPermalink" id="frmProductPermalink" placeholder="Permalink for the article" value={{result.productPermalink}}>
+                        <input type="text" class="form-control" name="frmProductPermalink" id="frmProductPermalink" placeholder="لینک این کالا" value={{result.productPermalink}}>
                         <span class="input-group-btn">
-                            <button class="btn btn-success" id="validate_permalink" type="button">Validate</button>
+                            <button class="btn btn-success" id="validate_permalink" type="button">صحت لینک</button>
                         </span>
                     </div>
-                    <p class="help-block">This sets a readable URL for the product</p>
+                    <p class="help-block">ایجاد یک لینک خوانا برای کالا</p>
                 </div>
             </div>
             <div class="form-group">
                 <input type="hidden" id="productOptJson" name="productOptJson" value="{{result.productOptions}}" />
-                <label for="editor" class="col-sm-2 control-label">Product options</label>
+                <label for="editor" class="col-sm-2 control-label">تنظیمات فیلدهای اضافه کالا</label>
                 <div class="col-lg-10">
                     <ul class="list-group" id="product_opt_wrapper">
                         <li class="list-group-item">
                             <div class="row">
                             <div class="col-lg-2">
-                                <strong>Name:</strong>
-                                <input type="text" id="product_optName" class="form-control" placeholder="size" />
+                                <strong>نام:</strong>
+                                <input type="text" id="product_optName" class="form-control" placeholder="سایز" />
                             </div>
                             <div class="col-lg-2">
-                                <strong>Label:</strong>
-                                <input type="text" id="product_optLabel" class="form-control" placeholder="Select size"/>
+                                <strong>برچسب:</strong>
+                                <input type="text" id="product_optLabel" class="form-control" placeholder="انتخاب سایز"/>
                             </div>
                             <div class="col-lg-2">
-                                <strong>Type:</strong>
+                                <strong>نوع:</strong>
                                 <select id="product_optType" class="form-control">
                                     <option value="select">Select</option>
                                     <option value="radio">Radio</option>
@@ -82,11 +82,11 @@
                                 </select>
                             </div>
                             <div class="col-lg-4">
-                                <strong>Options:</strong>
+                                <strong>گزینه ها:</strong>
                                 <input type="text" id="product_optOptions" class="form-control" placeholder="comma, seporated, list"/>
                             </div>
                             <div class="col-lg-2 text-right"></br>
-                                <button id="product_opt_add" class="btn btn-success">Add</button>
+                                <button id="product_opt_add" class="btn btn-success">افزودن</button>
                             </div></div>
                         </li>
                         {{#each options}}
@@ -97,17 +97,17 @@
                                     <div class='col-lg-2'>{{this.optType}}</div>
                                     <div class='col-lg-4'>{{{this.optOptions}}}</div>
                                     <div class='col-lg-2 text-right'>
-                                        <button class='product_opt_remove btn btn-danger btn-sm'>Remove</button>
+                                        <button class='product_opt_remove btn btn-danger btn-sm'>حذف</button>
                                     </div>
                                 </div>
                             </li>
                         {{/each}}
                     </ul>
-                    <p class="help-block">Here you can set options for your product. Eg: Size, color, style</p>
+                    <p class="help-block">گزینه های کالا را در این قسمت میتوانید تنظیم کنید : رنگ ، سایز و ...</p>
                 </div>
             </div>
             <div class="form-group">
-                <label for="frmProductComment" class="col-sm-2 control-label">Allow comment</label>
+                <label for="frmProductComment" class="col-sm-2 control-label">قابلیت نظر دهی به کالا</label>
                 <div class="col-sm-10">
                     <div class="checkbox">
                         <label>
@@ -115,29 +115,29 @@
                                 name="frmProductComment">
                         </label>
                     </div>
-                    <p class="help-block">Allow free form comments when adding products to cart</p>
+                    <p class="help-block">اجازه ارسال نظر به شکل آزاد در هنگام اضافه کردن محصولات به سبد خرید</p>
                 </div>
             </div>
             <div class="form-group">
-                <label for="frmProductTags" class="col-sm-2 control-label">Product tag words</label>
+                <label for="frmProductTags" class="col-sm-2 control-label">برچسب های کالا</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="frmProductTags" name="frmProductTags" value="{{result.productTags}}">
-                    <p class="help-block">Tag words used to indexed products, making them easier to find and filter.</p>
+                    <p class="help-block">برچسب ها برای ایندکس شدن و فیلتر کردن راحتتر کالا ها استفاده میشوند . </p>
                 </div>
             </div>
             <div id="product-images">
-                <h2>Product images</h2>
+                <h2>تصویر کالا</h2>
                 {{#if images}}
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2">
                     {{#each images}}
                         <div class="col-md-3">
                             <p>
-                                <a data-id="{{this.path}}" class="btn-delete-image btn btn-danger btn-sm">Delete</a>
+                                <a data-id="{{this.path}}" class="btn-delete-image btn btn-danger btn-sm">حذف</a>
                                 {{#ifCond this.productImage '==' true}}
-                                    <span class="label label-info">main image</span>
+                                    <span class="label label-info">تصویر اصلی</span>
                                 {{else}}
-                                    <a data-id="{{this.path}}" class="set-as-main-image btn btn-sm btn-success">Set as main image</a>
+                                    <a data-id="{{this.path}}" class="set-as-main-image btn btn-sm btn-success">تصویر اصلی شود</a>
                                 {{/ifCond}}
                             </p>
                             <img src="{{this.path}}" class="product-main-image img-responsive">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 {{else}}
-                    <h4 class="text-warning">No images have been uploaded for this product</h4>
+                    <h4 class="text-warning">تصویری برای کالا انتخاب نشده است </h4>
                 {{/if}}
             </div>
         </div>
@@ -160,18 +160,18 @@
         <div class="modal-content">
             <form method="post" id="upload_form" name="upload_form" action="/admin/file/upload" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Product image upload</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">بستن</span></button>
+                    <h4 class="modal-title" id="myModalLabel">آپلود تصویر کالا</h4>
                 </div>
                 <div class="modal-body">
                     <span class="btn btn-info btn-file">
-                        Select file<input type="file" name="upload_file" id="upload_file">
+                        انتخاب فایل<input type="file" name="upload_file" id="upload_file">
                     </span>
                     <input type="hidden" id="productId" name="productId" value="{{result._id}}"/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="submit" id="saveButton" name="saveButton" class="btn btn-primary">Upload</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">انصراف</button>
+                    <button type="submit" id="saveButton" name="saveButton" class="btn btn-primary">آپلود</button>
                 </div>
             </form>
         </div>
