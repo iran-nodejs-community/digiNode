@@ -5,28 +5,28 @@
         {{/if}}
         <div class="col-md-5">
             <div class="panel panel-default" style="margin-top: 30px;">
-                <div class="panel-heading">Customer details</div>
+                <div class="panel-heading">جزییات مشتری</div>
                 {{#unless session.customer}}
                 <div class="panel-body customer-details-login">
-                    <p>Existing customer</p>
+                    <p>حساب کاربری دارم</p>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="customerLoginEmail" name="loginEmail" minlength="5" placeholder="Email address" required>
+                        <input type="email" class="form-control" id="customerLoginEmail" name="loginEmail" minlength="5" placeholder="آدرس ایمیل" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="customerLoginPassword" name="loginPassword" minlength="5" placeholder="Password" required>
+                        <input type="password" class="form-control" id="customerLoginPassword" name="loginPassword" minlength="5" placeholder="رمز عبور" required>
                     </div>
                     <div class="form-group">
                         <a href="/customer/forgotten" class="btn btn-default pull-left">Forgotten</a>
                     </div>
                     <div class="form-group">
-                        <button id="customerLogin" class="btn btn-success pull-right" type="submit">Login</button>
+                        <button id="customerLogin" class="btn btn-success pull-right" type="submit">ورود</button>
                     </div>
                 </div>
                 {{/unless}}
                 <div class="panel-body customer-details">
                     {{#if session.customer}}
                     <div class="col-xs-12 col-md-12">
-                        <button id="customerLogout" class="btn btn-sm btn-success pull-right">Change customer</button>
+                        <button id="customerLogout" class="btn btn-sm btn-success pull-right">تغییر مشتری</button>
                     </div>
                     {{/if}}
                     <form id="shipping-form" class="shipping-form" action="/{{config.paymentGateway}}/checkout_action" method="post" role="form" data-toggle="validator" novalidate="false">
@@ -38,11 +38,11 @@
                         {{/if}}
                         {{#unless session.customer}}
                         <div class="col-xs-12 col-md-12">
-                            <p class="text-muted">Enter a password to create an account for next time</p>
+                            <p class="text-muted">یک رمز عبور وارد کنید تا در زمان دیگر ، حساب کاربری بسازید</p>
                             <div class="form-group">
                                 <input type="password" class="form-control customerDetails" id="newCustomerPassword" name="newCustomerPassword" placeholder="Password" required>
                             </div>
-                            <a id="createCustomerAccount" class="btn btn-success pull-right">Create account</a>
+                            <a id="createCustomerAccount" class="btn btn-success pull-right">ایجاد حساب کاربری</a>
                         </div>
                         {{/unless}}
                     </form>

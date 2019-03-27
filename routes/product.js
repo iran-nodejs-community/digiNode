@@ -58,7 +58,7 @@ router.get('/admin/products/filter/:search', (req, res, next) => {
 // insert form
 router.get('/admin/product/new', common.restrict, common.checkAccess, (req, res) => {
     res.render('product_new', {
-        title: 'New product',
+        title: 'کالای جدید',
         session: req.session,
         productTitle: common.clearSessionValue(req.session, 'productTitle'),
         productDescription: common.clearSessionValue(req.session, 'productDescription'),
@@ -96,7 +96,7 @@ router.post('/admin/product/insert', common.restrict, common.checkAccess, (req, 
         }
         if(product > 0 && req.body.frmProductPermalink !== ''){
             // permalink exits
-            req.session.message = 'Permalink already exists. Pick a new one.';
+            req.session.message = 'لینک در حال حاضر وجود دارد یکی را انتخاب کنید';
             req.session.messageType = 'danger';
 
             // keep the current stuff
@@ -126,7 +126,7 @@ router.post('/admin/product/insert', common.restrict, common.checkAccess, (req, 
                     req.session.productTags = req.body.frmProductTags;
                     req.session.productStock = req.body.frmProductStock ? parseInt(req.body.frmProductStock) : null;
 
-                    req.session.message = 'Error: Inserting product';
+                    req.session.message = 'خطا: افزودن محصول';
                     req.session.messageType = 'danger';
 
                     // redirect to insert
@@ -138,7 +138,7 @@ router.post('/admin/product/insert', common.restrict, common.checkAccess, (req, 
                     // add to lunr index
                     common.indexProducts(req.app)
                     .then(() => {
-                        req.session.message = 'New product successfully created';
+                        req.session.message = 'محصول جدید با موفقیت ایجاد شد';
                         req.session.messageType = 'success';
 
                         // redirect to new doc
@@ -165,7 +165,7 @@ router.get('/admin/product/edit/:id', common.restrict, common.checkAccess, (req,
             }
 
             res.render('product_edit', {
-                title: 'Edit product',
+                title: 'ویرایش کالا',
                 result: result,
                 images: images,
                 options: options,
@@ -188,7 +188,7 @@ router.post('/admin/product/update', common.restrict, common.checkAccess, (req, 
     db.products.findOne({_id: common.getId(req.body.frmProductId)}, (err, product) => {
         if(err){
             console.info(err.stack);
-            req.session.message = 'Failed updating product.';
+            req.session.message = 'خطا در به روز رسانی';
             req.session.messageType = 'danger';
             res.redirect('/admin/product/edit/' + req.body.frmProductId);
             return;
@@ -196,7 +196,7 @@ router.post('/admin/product/update', common.restrict, common.checkAccess, (req, 
         db.products.count({'productPermalink': req.body.frmProductPermalink, _id: {$ne: common.getId(product._id)}}, (err, count) => {
             if(err){
                 console.info(err.stack);
-                req.session.message = 'Failed updating product.';
+                req.session.message = 'خطا در به روز رسانی';
                 req.session.messageType = 'danger';
                 res.redirect('/admin/product/edit/' + req.body.frmProductId);
                 return;
@@ -254,7 +254,7 @@ router.post('/admin/product/update', common.restrict, common.checkAccess, (req, 
                             // Update the index
                             common.indexProducts(req.app)
                             .then(() => {
-                                req.session.message = 'Successfully saved';
+                                req.session.message = 'با موفقیت ذخیره شد';
                                 req.session.messageType = 'success';
                                 res.redirect('/admin/product/edit/' + req.body.frmProductId);
                             });

@@ -1,7 +1,7 @@
 {
     "cartTitle": "دیجی نود",
     "cartDescription": " فروشگاه",
-    "cartLogo": "",
+    "cartLogo": "images/digi_node.png",
     "baseUrl": "http://localhost:1111",
     "emailHost": "smtp-mail.outlook.com",
     "emailPort": 587,
@@ -15,13 +15,15 @@
     "productsPerRow": 3,
     "productsPerPage": 6,
     "menuTitle": "منو",
-    "menuLocation": "side",
-    "footerHtml": "&lt;h4 class=&quot;text-center&quot;&gt;دیجی نود&lt;/h4&gt;",
+    "menuLocation": "top",
+    "footerHtml": "",
     "googleAnalytics": "",
-    "customCss": ".footer{padding-top: 5px;}",
+    "customCss": "",
     "currencySymbol": "ریال",
     "paymentGateway": "stripe",
     "databaseConnectionString": "mongodb://127.0.0.1:27017/shop",
     "theme": "Cloth",
-    "trackStock": false
+    "trackStock": false,
+    "env": "",
+    "themeViews": "../views/themes/Cloth/"
 }

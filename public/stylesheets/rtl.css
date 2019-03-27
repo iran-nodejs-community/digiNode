@@ -5,19 +5,17 @@
     src: url('../Font/Gandom-FD.ttf');
 }
 
-
-body{
+body {
     direction: rtl;
 }
 
-body,div,p,a,section,h1,h2,h3,h4,h5,h6,input,label,li,ul{
+body, div, p, a, section, h1, h2, h3, h4, h5, h6, input, label, li, ul {
     font-family: "Gandom" !important;
 }
 
-.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand
-{
-    margin-left:unset;
-    margin-right:-15px;
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: unset;
+    margin-right: -15px;
 }
 
 .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
@@ -26,13 +24,17 @@ body,div,p,a,section,h1,h2,h3,h4,h5,h6,input,label,li,ul{
 
 }
 
-.CodeMirror pre{
+.CodeMirror pre {
     direction: ltr;
 }
 
-.col-lg-offset-4{
+.col-lg-offset-4 {
     margin-right: 33.33333333%;
-    margin-left:unset;
+    margin-left: unset;
+}
+
+.navbar-brand-image > img{
+    margin-right: 45px;
 }
 
 .navbar-nav {
@@ -47,6 +49,56 @@ body,div,p,a,section,h1,h2,h3,h4,h5,h6,input,label,li,ul{
     float: right;
 }
 
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: right;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]
+{
+    margin-right: -20px;
+    margin-left: unset;
+}
+
+.radio label, .checkbox label
+{
+    padding-right: 20px;
+    padding-left: unset;
+}
+
+.thumbnail {
+    margin-right: 10px;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.thumbnail:hover {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.product-title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+    width: 100%;
+    display: inline-block;
+}
+
+.product-title-inner{
+    font-size: 24px;
+    margin-top: 0px;
+}
+
+.btnAddToCart, .body_text {
+    padding-top: 52px;
+    padding-bottom: 15px;
+
+}
+
+.product-price-inner{
+    padding-bottom: 10px;
+
+    font-size: 29px;
+
+    color: #AAAAAA;
 }

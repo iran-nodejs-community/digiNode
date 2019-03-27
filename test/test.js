@@ -156,7 +156,7 @@ test.cb('[Success] Add product to cart', t => {
                 t.end();
             }
 
-            t.deepEqual(res.body.message, 'Cart successfully updated');
+            t.deepEqual(res.body.message, 'سبد خرید به روز رسانی شد');
             t.end();
         });
 });

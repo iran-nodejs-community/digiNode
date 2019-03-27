@@ -5,6 +5,7 @@ const async = require('async');
 const _ = require('lodash');
 const common = require('../lib/common');
 
+
 // These is the customer facing routes
 router.get('/payment/:orderId', async (req, res, next) => {
     let db = req.app.db;
@@ -213,12 +214,12 @@ router.post('/product/updatecart', (req, res, next) => {
 
         // show response
         if(hasError === false){
-            res.status(200).json({message: 'Cart successfully updated', totalCartItems: Object.keys(req.session.cart).length});
+            res.status(200).json({message: 'سبد خرید به روز رسانی شد', totalCartItems: Object.keys(req.session.cart).length});
         }else{
             if(stockError){
-                res.status(400).json({message: 'There is insufficient stock of this product.', totalCartItems: Object.keys(req.session.cart).length});
+                res.status(400).json({message: 'موجودی کافی برای این محصول وجود ندارد.', totalCartItems: Object.keys(req.session.cart).length});
             }else{
-                res.status(400).json({message: 'There was an error updating the cart', totalCartItems: Object.keys(req.session.cart).length});
+                res.status(400).json({message: 'هنگام بروزرسانی سبد خرید خطایی روی داد', totalCartItems: Object.keys(req.session.cart).length});
             }
         }
     });
@@ -237,7 +238,7 @@ router.post('/product/removefromcart', (req, res, next) => {
     }, () => {
         // update total cart amount
         common.updateTotalCartAmount(req, res);
-        res.status(200).json({message: 'Product successfully removed', totalCartItems: Object.keys(req.session.cart).length});
+        res.status(200).json({message: 'محصول با موفقیت حذف شد', totalCartItems: Object.keys(req.session.cart).length});
     });
 });
 
@@ -248,7 +249,7 @@ router.post('/product/emptycart', (req, res, next) => {
 
     // update total cart amount
     common.updateTotalCartAmount(req, res);
-    res.status(200).json({message: 'Cart successfully emptied', totalCartItems: 0});
+    res.status(200).json({message: 'سبد خرید با موفقیت تخلیه شد', totalCartItems: 0});
 });
 
 // Add item to cart
@@ -271,19 +272,19 @@ router.post('/product/addtocart', (req, res, next) => {
     // Get the item from the DB
     db.products.findOne({_id: common.getId(req.body.productId)}, (err, product) => {
         if(err){
-            console.error(colors.red('Error adding to cart', err));
-            return res.status(400).json({message: 'Error updating cart. Please try again.'});
+            console.error(colors.red('خطا در افزودن به سبد خرید', err));
+            return res.status(400).json({message: 'خطا در به روز رسانی سبد خرید لطفا دوباره تلاش کنید.'});
         }
 
         // No product found
         if(!product){
-            return res.status(400).json({message: 'Error updating cart. Please try again.'});
+            return res.status(400).json({message: 'خطا در به روز رسانی سبد خرید لطفا دوباره تلاش کنید.'});
         }
 
         // If stock management on check there is sufficient stock for this product
         if(config.trackStock){
             if(productQuantity > product.productStock){
-                return res.status(400).json({message: 'There is insufficient stock of this product.'});
+                return res.status(400).json({message: 'موجودی کافی برای این محصول وجود ندارد.'});
             }
         }
 
@@ -332,7 +333,7 @@ router.post('/product/addtocart', (req, res, next) => {
 
         // update how many products in the shopping cart
         req.session.cartTotalItems = req.session.cart.reduce((a, b) => +a + +b.quantity, 0);
-        return res.status(200).json({message: 'Cart successfully updated', totalCartItems: req.session.cartTotalItems});
+        return res.status(200).json({message: 'سبد خرید با موفقیت به روز شد', totalCartItems: req.session.cartTotalItems});
     });
 });
 
@@ -370,7 +371,7 @@ router.get('/search/:searchTerm/:pageNum?', (req, res) => {
             results: results.data,
             filtered: true,
             session: req.session,
-            metaDescription: req.app.config.cartTitle + ' - Search term: ' + searchTerm,
+            metaDescription: req.app.config.cartTitle + ' - نتایج جستجو: ' + searchTerm,
             searchTerm: searchTerm,
             pageCloseBtn: common.showCartCloseBtn('search'),
             message: common.clearSessionValue(req.session, 'message'),
@@ -386,7 +387,7 @@ router.get('/search/:searchTerm/:pageNum?', (req, res) => {
         });
     })
     .catch((err) => {
-        console.error(colors.red('Error searching for products', err));
+        console.error(colors.red('خطا در جستجوی محصولات', err));
     });
 });
 
@@ -443,7 +444,7 @@ router.get('/category/:cat/:pageNum?', (req, res) => {
         });
     })
     .catch((err) => {
-        console.error(colors.red('Error getting products for category', err));
+        console.error(colors.red('خطا در گرفتن محصولات برای دسته بندی', err));
     });
 });
 
@@ -454,7 +455,7 @@ router.get('/sitemap.xml', (req, res, next) => {
 
     common.addSitemapProducts(req, res, (err, products) => {
         if(err){
-            console.error(colors.red('Error generating sitemap.xml', err));
+            console.error(colors.red('خطا در ایجاد sitemap.xml', err));
         }
         let sitemap = sm.createSitemap(
             {
@@ -497,7 +498,7 @@ router.get('/page/:pageNum', (req, res, next) => {
         }
 
         res.render(`${config.themeViews}index`, {
-            title: 'Shop',
+            title: 'فروشگاه',
             results: results.data,
             session: req.session,
             message: common.clearSessionValue(req.session, 'message'),
@@ -539,7 +540,7 @@ router.get('/:page?', (req, res, next) => {
             }
 
             res.render(`${config.themeViews}index`, {
-                title: `${config.cartTitle} - Shop`,
+                title: `${config.cartTitle} فروشگاه - `,
                 theme: config.theme,
                 results: results.data,
                 session: req.session,
@@ -557,7 +558,7 @@ router.get('/:page?', (req, res, next) => {
             });
         })
         .catch((err) => {
-            console.error(colors.red('Error getting products for page', err));
+            console.error(colors.red('خطا دریافت لیست کالا', err));
         });
     }else{
         if(req.params.page === 'admin'){
@@ -587,9 +588,9 @@ router.get('/:page?', (req, res, next) => {
                 });
             }else{
                 res.status(404).render('error', {
-                    title: '404 Error - Page not found',
+                    title: '404 Error - صفحه یافت نشد',
                     config: req.app.config,
-                    message: '404 Error - Page not found',
+                    message: '404 Error - صفحه یافت نشد',
                     helpers: req.handlebars.helpers,
                     showFooter: 'showFooter',
                     menu: common.sortMenu(await common.getMenu(db))
