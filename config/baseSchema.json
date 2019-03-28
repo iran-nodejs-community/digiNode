@@ -2,11 +2,11 @@
     "properties": {
         "cartTitle": {
             "type": "string",
-            "default": "expressCart"
+            "default": "digiNode"
         },
         "cartDescription": {
             "type": "string",
-            "default": "This is my expressCart"
+            "default": "This is my digiNode"
         },
         "cartLogo": {
             "type": "string"
@@ -14,7 +14,7 @@
         "baseUrl": {
             "type": "string",
             "format": "uri-template",
-            "default": "http://localhost:1111"
+            "default": "http://localhost:8080"
         },
         "emailHost": {
             "format": "uri-template",
@@ -69,7 +69,7 @@
         },
         "footerHtml": {
             "type": "string",
-            "default": "&lt;h4 class=&quot;text-center&quot;&gt;Powered by expressCart&lt;/h4&gt;"
+            "default": "&lt;h4 class=&quot;text-center&quot;&gt;Powered by digiNode&lt;/h4&gt;"
         },
         "googleAnalytics": {
             "type": "string"
