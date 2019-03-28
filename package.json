@@ -1,6 +1,6 @@
 {
   "name": "digi-node",
-  "version": "1.1.11",
+  "version": "0.1.0",
   "description": "digiNode is a fully functional persian shopping cart built in Node.js (Express, MongoDB) with Stripe, PayPal and Authorize.net payments. (forked from https://demo.expresscart.markmoffat.com)",
   "private": false,
   "scripts": {
