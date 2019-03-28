@@ -27,13 +27,13 @@
 5. Start application: `npm start --production`
 6. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
 
-Keeping expressCart running after closing the terminal can be done in a few ways but we recommend using the `PM2` package. To set this up:
+Keeping digiNode running after closing the terminal can be done in a few ways but we recommend using the `PM2` package. To set this up:
 
 1. Install PM2: `npm install pm2 -g`
-2. Add expressCart to PM2: `NODE_ENV=production pm2 start app.js --name "expressCart"`
+2. Add digiNode to PM2: `NODE_ENV=production pm2 start app.js --name "digiNode"`
 3. Check PM2 has our app: `pm2 list`
 4. Save the PM2 config: `pm2 save`
-5. To start/stop: `pm2 start expressCart` / `pm2 stop expressCart`
+5. To start/stop: `pm2 start digiNode` / `pm2 stop digiNode`
 
 > Note: Node.js version 7.x or greater is needed.
 
@@ -41,7 +41,7 @@ Keeping expressCart running after closing the terminal can be done in a few ways
 
 The easiest way to get up and running is using Docker. Once the Docker CLI is installed from [https://www.docker.com/get-docker](https://www.docker.com/get-docker).
 
-1. Enter the root of the expressCart application
+1. Enter the root of the digiNode application
 2. Change `/config/settings.json` - `"databaseConnectionString": "mongodb://mongodb:27017/shop"`
 3. Run: `docker-compose up --build`
 4. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
@@ -65,16 +65,13 @@ Adding your own custom style is done by accessing the `Admin` panel then selecti
 #### Demo images
 
 Sample homepage
-![Sample homepage](https://mrvautin.com/content/images/2018/01/expressCart-demo.jpg)
+![دیجی نود - دیجی نود فروشگاه - - 190329-010500](https://user-images.githubusercontent.com/12640517/55191120-fa827300-51be-11e9-9da5-d49d6020261d.png)
 
 Admin page
-![Admin page](https://mrvautin.com/content/images/2018/01/admin-settings.png)
+![دیجی نود - Cart - 190329-010528](https://user-images.githubusercontent.com/12640517/55191085-e474b280-51be-11e9-8a9b-0c0916a15f02.png)
 
 Popout cart
-![Popout cart](https://mrvautin.com/content/images/2018/02/popout-cart.png)
-
-Great themes
-![Great themes](https://mrvautin.com/content/images/2018/02/expresscart-mono-theme.png)
+![دیجی نود - دیجی نود فروشگاه - - 190329-010553](https://user-images.githubusercontent.com/12640517/55191168-17b74180-51bf-11e9-893d-0d63f36ca712.png)
 
 ##### CSS
 
@@ -115,13 +112,13 @@ Tags are used when indexing the products for search. It's advised to set tags (k
 
 ## Database
 
-`expressCart` uses a MongoDB for storing all the data. Setting of the database connection string is done through the `/config/settings.json` file. There are two properties relating to the database connection:
+`digiNode` uses a MongoDB for storing all the data. Setting of the database connection string is done through the `/config/settings.json` file. There are two properties relating to the database connection:
 
 Example MongoDB configuration:
 
 ```
 {
-    "databaseConnectionString": "mongodb://localhost:27017/expresscart"
+    "databaseConnectionString": "mongodb://localhost:27017/shop"
 }
 ```
 
@@ -137,7 +134,7 @@ All settings are stored in json files in the `/config` directory. The main appli
 
 ##### Local configuration
 
-If you'd rather store settings in a file which isn't checked into version control, you can create a new settings file at `/config/settings-local.json` and store your complete settings there. When viewing or editing settings in the admin panel, expressCart will detect the existence of this file and update it accordingly.
+If you'd rather store settings in a file which isn't checked into version control, you can create a new settings file at `/config/settings-local.json` and store your complete settings there. When viewing or editing settings in the admin panel, digiNode will detect the existence of this file and update it accordingly.
 
 ##### Cart name and Cart description
 
@@ -160,7 +157,7 @@ This email is used for any email receipts which are sent by your website.
 
 ##### Free shipping threshold
 
-expressCart allows for the addition of a free shipping threshold. The cart will remove the shipping costs once the order has exceeded the `Free shipping threshold`
+digiNode allows for the addition of a free shipping threshold. The cart will remove the shipping costs once the order has exceeded the `Free shipping threshold`
 value. If the value of the cart is beneath the `Free shipping threshold`, the cart will add the `Flat shipping rate` to the total amount.
 
 ##### Payment Gateway
@@ -211,7 +208,7 @@ The Paypal config file is located: `/config/paypal.json`. A example Paypal setti
     "mode": "live", // sandbox or live
     "client_id": "this_is_not_real",
     "client_secret": "this_is_not_real",
-    "paypalCartDescription": "expressCart", // Shows as the Paypal description
+    "paypalCartDescription": "digiNode", // Shows as the Paypal description
     "paypalCurrency": "USD" // The Paypal currency to charge in
 }
 ```
@@ -226,7 +223,7 @@ The Stripe config file is located: `/config/stripe.json`. A example Stripe setti
     "secretKey": "sk_test_this_is_not_real",
     "publicKey": "pk_test_this_is_not_real",
     "stripeCurrency": "usd", The Stripe currency to charge in
-    "stripeDescription": "expressCart payment", // Shows as the Stripe description
+    "stripeDescription": "درگاه پرداخت دیجی نود", // Shows as the Stripe description
     "stripeLogoURL": "http://localhost:1111/images/stripelogo.png" // URL to the logo to display on Stripe form
 }
 ```
@@ -250,7 +247,7 @@ Note: The credentials are obtained from your Authorize.net account dashboard.
 
 ## Email settings
 
-You will need to configure your SMTP details for expressCart to send email receipts to your customers.
+You will need to configure your SMTP details for digiNode to send email receipts to your customers.
 
 You will need to consult your email provider for the relevant details.
 
@@ -282,7 +279,7 @@ You can use the `Send test email` button to ensure your email settings are corre
 
 ## Menu
 
-Although `expressCart` is a search based shopping cart, you can also group your products into categories using tags. You can then setup menu Items to "filter" based on
+Although `digiNode` is a search based shopping cart, you can also group your products into categories using tags. You can then setup menu Items to "filter" based on
 keywords (tags) to make it easier for your customers.
 
 Setting of menu items is done via `/admin/settings/menu`.
