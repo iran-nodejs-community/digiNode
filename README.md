@@ -1,10 +1,20 @@
 # digiNode
 
 ![digi_node](https://user-images.githubusercontent.com/12640517/55111276-ac566c80-50f7-11e9-90ab-1e44568aabcf.png)
-
 `digiNode` is a fully functional persian shopping cart built in Node.js (Express, MongoDB) with Stripe, PayPal and Authorize.net payments. (forked from [markmoffat](https://demo.expresscart.markmoffat.com/))
 
-[**View the demo**](https://demo.expresscart.markmoffat.com/)
+[**Project trello and tasks**](https://trello.com/diginode)
+
+<div dir="rtl" align="right">
+
+`digiNode`  یک فروشگاه فارسی با استفاده از node.js میباشد که در واقع یک فورک از expressCart  میباشد با تغییراتی که انجام شده اند و یا در لیست تسک ها در حال انجام میباشند .
+<br/>
+ پروژه digiNode یک پروژه متن باز و رایگان میباشد . تمامی برنامه نویسان میتوانند بر روی این پروژه کار کنند و در بهبودی پروژه کمک کنند .
+
+</div>
+
+[**تسک های ترلو Trello**](https://trello.com/diginode)
+
 
 ## Installation
 
