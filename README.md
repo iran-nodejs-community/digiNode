@@ -20,12 +20,12 @@
 
 ## Installation
 
-1. Create a folder to hold your installation: `mkdir expressCart`
+1. Create a folder to hold your installation: `mkdir digiNode`
 2. FTP/Copy the contents of the zip to your newly created folder
-3. Enter folder: `cd expressCart`
+3. Enter folder: `cd digiNode`
 4. Install dependencies: `npm install`
 5. Start application: `npm start --production`
-6. Visit [http://127.0.0.1:1111](http://127.0.0.1:1111) in your browser
+6. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
 
 Keeping expressCart running after closing the terminal can be done in a few ways but we recommend using the `PM2` package. To set this up:
 
@@ -42,9 +42,9 @@ Keeping expressCart running after closing the terminal can be done in a few ways
 The easiest way to get up and running is using Docker. Once the Docker CLI is installed from [https://www.docker.com/get-docker](https://www.docker.com/get-docker).
 
 1. Enter the root of the expressCart application
-2. Change `/config/settings.json` - `"databaseConnectionString": "mongodb://mongodb:27017/expresscart"`
+2. Change `/config/settings.json` - `"databaseConnectionString": "mongodb://mongodb:27017/shop"`
 3. Run: `docker-compose up --build`
-4. Visit [http://127.0.0.1:1111](http://127.0.0.1:1111) in your browser
+4. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
 
 ### Deploy on Heroku
 
@@ -54,7 +54,7 @@ The easiest way to get up and running is using Docker. Once the Docker CLI is in
 
 ## Admin
 
-Visit: [http://127.0.0.1:1111/admin](http://127.0.0.1:1111/admin)
+Visit: [http://127.0.0.1:8080/admin](http://127.0.0.1:8080/admin)
 
 A new user form will be shown where a user can be created.
 
