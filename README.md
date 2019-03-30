@@ -20,12 +20,11 @@
 
 ## Installation
 
-1. Create a folder to hold your installation: `mkdir digiNode`
-2. FTP/Copy the contents of the zip to your newly created folder
-3. Enter folder: `cd digiNode`
-4. Install dependencies: `npm install`
-5. Start application: `npm start --production`
-6. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
+1. clone project with command '`git clone https://github.com/nimahkh/digiNode.git`'
+2. Enter folder: `cd digiNode`
+3. Install dependencies: `npm install`
+4. Start application: `npm start --production`
+5. Visit [http://127.0.0.1:8080](http://127.0.0.1:8080) in your browser
 
 Keeping digiNode running after closing the terminal can be done in a few ways but we recommend using the `PM2` package. To set this up:
 
