@@ -77,6 +77,7 @@ api routes are in progress and will be completed as soon as we can .
 
 ###### admin routes
 | name  | router address | params | description |
+| ------------- | ------------- | ------------- | ------------- |
 | login admin | `localhost:8080/api/v1/admin/login` |  email,password | you can register admin in `localhost:8080/admin/login` route for first setup. |
 | get products | `localhost:8080/api/v1/admin/products` |  [] | it will show last 10 new created products |
 
