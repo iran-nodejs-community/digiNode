@@ -72,6 +72,14 @@ Admin page
 Popout cart
 ![دیجی نود - دیجی نود فروشگاه - - 190329-010553](https://user-images.githubusercontent.com/12640517/55191168-17b74180-51bf-11e9-893d-0d63f36ca712.png)
 
+##### API
+api routes are in progress and will be completed as soon as we can . 
+
+###### admin routes
+| name  | router address | params | description |
+| login admin | `localhost:8080/api/v1/admin/login` |  email,password | you can register admin in `localhost:8080/admin/login` route for first setup. |
+| get products | `localhost:8080/api/v1/admin/products` |  [] | it will show last 10 new created products |
+
 ##### CSS
 
 You can add your own custom CSS into the `Custom CSS` box. This will be minified and added to each page.
