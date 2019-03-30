@@ -70,54 +70,54 @@ app.engine('hbs', handlebars({
     extname: 'hbs',
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     defaultLayout: 'layout.hbs',
-    partialsDir: [ path.join(__dirname, 'views') ]
+    partialsDir: [path.join(__dirname, 'views')]
 }));
 app.set('view engine', 'hbs');
 
 // helpers for the handlebar templating platform
 handlebars = handlebars.create({
     helpers: {
-        perRowClass: function(numProducts){
+        perRowClass: function (numProducts){
             if(parseInt(numProducts) === 1){
-                return'col-md-12 col-xl-12 col m12 xl12 product-item';
+                return 'col-md-12 col-xl-12 col m12 xl12 product-item';
             }
             if(parseInt(numProducts) === 2){
-                return'col-md-6 col-xl-6 col m6 xl6 product-item';
+                return 'col-md-6 col-xl-6 col m6 xl6 product-item';
             }
             if(parseInt(numProducts) === 3){
-                return'col-md-4 col-xl-4 col m4 xl4 product-item';
+                return 'col-md-4 col-xl-4 col m4 xl4 product-item';
             }
             if(parseInt(numProducts) === 4){
-                return'col-md-3 col-xl-3 col m3 xl3 product-item';
+                return 'col-md-3 col-xl-3 col m3 xl3 product-item';
             }
 
-            return'col-md-6 col-xl-6 col m6 xl6 product-item';
+            return 'col-md-6 col-xl-6 col m6 xl6 product-item';
         },
-        menuMatch: function(title, search){
+        menuMatch: function (title, search){
             if(!title || !search){
-                return'';
+                return '';
             }
             if(title.toLowerCase().startsWith(search.toLowerCase())){
-                return'class="navActive"';
+                return 'class="navActive"';
             }
-            return'';
+            return '';
         },
-        getTheme: function(view){
-            return`themes/${config.theme}/${view}`;
+        getTheme: function (view){
+            return `themes/${config.theme}/${view}`;
         },
-        formatAmount: function(amt){
+        formatAmount: function (amt){
             if(amt){
                 return numeral(amt).format('0.00');
             }
-            return'0.00';
+            return '0.00';
         },
-        subStringTitle: function(string){
+        subStringTitle: function (string){
             if(string){
-                return string.substr(0, 30)+"...";
+                return string.substr(0, 30) + '...';
             }
             return ' ';
         },
-        amountNoDecimal: function(amt){
+        amountNoDecimal: function (amt){
             if(amt){
                 return handlebars.helpers.formatAmount(amt).replace('.', '');
             }
@@ -125,37 +125,37 @@ handlebars = handlebars.create({
         },
         getStatusColor: function (status){
             switch(status){
-            case'Paid':
-                return'success';
-            case'Approved':
-                return'success';
-            case'Approved - Processing':
-                return'success';
-            case'Failed':
-                return'danger';
-            case'Completed':
-                return'success';
-            case'Shipped':
-                return'success';
-            case'Pending':
-                return'warning';
-            default:
-                return'danger';
+                case'Paid':
+                    return 'success';
+                case'Approved':
+                    return 'success';
+                case'Approved - Processing':
+                    return 'success';
+                case'Failed':
+                    return 'danger';
+                case'Completed':
+                    return 'success';
+                case'Shipped':
+                    return 'success';
+                case'Pending':
+                    return 'warning';
+                default:
+                    return 'danger';
             }
         },
         checkProductOptions: function (opts){
             if(opts){
-                return'true';
+                return 'true';
             }
-            return'false';
+            return 'false';
         },
-        currencySymbol: function(value){
+        currencySymbol: function (value){
             if(typeof value === 'undefined' || value === ''){
-                return'$';
+                return '$';
             }
             return value;
         },
-        objectLength: function(obj){
+        objectLength: function (obj){
             if(obj){
                 return Object.keys(obj).length;
             }
@@ -163,15 +163,15 @@ handlebars = handlebars.create({
         },
         checkedState: function (state){
             if(state === 'true' || state === true){
-                return'checked';
+                return 'checked';
             }
-            return'';
+            return '';
         },
         selectState: function (state, value){
             if(state === value){
-                return'selected';
+                return 'selected';
             }
-            return'';
+            return '';
         },
         isNull: function (value, options){
             if(typeof value === 'undefined' || value === ''){
@@ -190,26 +190,26 @@ handlebars = handlebars.create({
         },
         ifCond: function (v1, operator, v2, options){
             switch(operator){
-            case'==':
-                return(v1 === v2) ? options.fn(this) : options.inverse(this);
-            case'!=':
-                return(v1 !== v2) ? options.fn(this) : options.inverse(this);
-            case'===':
-                return(v1 === v2) ? options.fn(this) : options.inverse(this);
-            case'<':
-                return(v1 < v2) ? options.fn(this) : options.inverse(this);
-            case'<=':
-                return(v1 <= v2) ? options.fn(this) : options.inverse(this);
-            case'>':
-                return(v1 > v2) ? options.fn(this) : options.inverse(this);
-            case'>=':
-                return(v1 >= v2) ? options.fn(this) : options.inverse(this);
-            case'&&':
-                return(v1 && v2) ? options.fn(this) : options.inverse(this);
-            case'||':
-                return(v1 || v2) ? options.fn(this) : options.inverse(this);
-            default:
-                return options.inverse(this);
+                case'==':
+                    return (v1 === v2) ? options.fn(this) : options.inverse(this);
+                case'!=':
+                    return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+                case'===':
+                    return (v1 === v2) ? options.fn(this) : options.inverse(this);
+                case'<':
+                    return (v1 < v2) ? options.fn(this) : options.inverse(this);
+                case'<=':
+                    return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+                case'>':
+                    return (v1 > v2) ? options.fn(this) : options.inverse(this);
+                case'>=':
+                    return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+                case'&&':
+                    return (v1 && v2) ? options.fn(this) : options.inverse(this);
+                case'||':
+                    return (v1 || v2) ? options.fn(this) : options.inverse(this);
+                default:
+                    return options.inverse(this);
             }
         },
         isAnAdmin: function (value, options){
@@ -363,16 +363,16 @@ MongoClient.connect(config.databaseConnectionString, {}, (err, client) => {
 
     // run indexing
     common.runIndexing(app)
-    .then(app.listen(app.get('port')))
-    .then(() => {
-        // lift the app
-        app.emit('appStarted');
-        console.log(colors.green('expressCart running on host: http://localhost:' + app.get('port')));
-    })
-    .catch((err) => {
-        console.error(colors.red('Error setting up indexes:' + err));
-        process.exit(2);
-    });
+        .then(app.listen(app.get('port')))
+        .then(() => {
+            // lift the app
+            app.emit('appStarted');
+            console.log(colors.green('expressCart running on host: http://localhost:' + app.get('port')));
+        })
+        .catch((err) => {
+            console.error(colors.red('Error setting up indexes:' + err));
+            process.exit(2);
+        });
 });
 
 module.exports = app;
