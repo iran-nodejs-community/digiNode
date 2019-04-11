@@ -60,7 +60,8 @@ const user = require('./routes/user');
 const paypal = require('./routes/payments/paypal');
 const stripe = require('./routes/payments/stripe');
 const authorizenet = require('./routes/payments/authorizenet');
-const adminApi = require('./api/V1/admin');
+const adminAuth = require('./api/V1/admin/auth');
+const adminProducts = require('./api/V1/admin/products');
 
 const app = express();
 
@@ -278,7 +279,8 @@ app.use('/', product);
 app.use('/', order);
 app.use('/', user);
 app.use('/', admin);
-app.use('/api/v1/admin', adminApi);
+app.use('/api/v1/admin', adminAuth);
+app.use('/api/v1/admin/products', adminProducts);
 app.use('/paypal', paypal);
 app.use('/stripe', stripe);
 app.use('/authorizenet', authorizenet);
