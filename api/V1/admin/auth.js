@@ -1,9 +1,8 @@
 const express = require('express');
-const methods = require('../method');
 const router = express.Router();
 let jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const common = require('../../lib/common');
+const common = require('../../../lib/common');
 const cors = require('cors');
 
 // login user with jwt
@@ -52,22 +51,6 @@ router.post('/login', cors(), (req, res, next) => {
                     }
                 });
         }
-    });
-});
-
-// show orders
-router.post('/products', methods.ensureToken, cors(), (req, res, next) => {
-    const db = req.app.db;
-
-    db.products.find({}).sort({'productAddedDate': -1}).limit(10).toArray((err, topResults) => {
-        if(err){
-            console.info(err.stack);
-        }
-        res.send({
-            'status': 200,
-            'message': '',
-            result: {products: topResults}
-        });
     });
 });
 
