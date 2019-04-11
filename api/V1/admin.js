@@ -4,9 +4,10 @@ const router = express.Router();
 let jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const common = require('../../lib/common');
+const cors = require('cors');
 
 // login user with jwt
-router.post('/login', (req, res, next) => {
+router.post('/login', cors(), (req, res, next) => {
     const db = req.app.db;
 
     db.users.findOne({userEmail: common.mongoSanitize(req.body.email)}, (err, user) => {
@@ -55,7 +56,7 @@ router.post('/login', (req, res, next) => {
 });
 
 // show orders
-router.post('/products', methods.ensureToken, (req, res, next) => {
+router.post('/products', methods.ensureToken, cors(), (req, res, next) => {
     const db = req.app.db;
 
     db.products.find({}).sort({'productAddedDate': -1}).limit(10).toArray((err, topResults) => {
