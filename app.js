@@ -12,6 +12,7 @@ const helmet = require('helmet');
 const colors = require('colors');
 const common = require('./lib/common');
 const mongodbUri = require('mongodb-uri');
+const cors= require('cors');
 let handlebars = require('express-handlebars');
 
 // Validate our settings schema
@@ -64,6 +65,7 @@ const adminAuth = require('./api/V1/admin/auth');
 const adminProducts = require('./api/V1/admin/products');
 
 const app = express();
+app.options('*', cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
